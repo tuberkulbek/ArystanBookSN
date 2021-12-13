@@ -1,0 +1,28 @@
+.item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 250px;
+    height: 71px;
+    border-bottom: 1px solid #FFD700;
+}
+
+.nav {
+    display: flex;
+    order: 2;
+}
+
+.item1:active {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+.item img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+.item1 {
+    color: #FFD700;
+    text-decoration: none;
+}

@@ -1,0 +1,38 @@
+.item {
+    border-left: 1px solid white;
+    background-color: crimson;
+    padding: 1px 20px 30px 20px;
+    color: #FDF4E3;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 40% 10% 1fr;
+}
+
+.item button {
+    background-color: #4CAF50; /* Green */
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.item button:hover {
+    background-color: gold; /* Green */
+}
+
+.item textarea {
+    position: relative;
+    display: block;
+    background: #fff;
+    border-radius: 31px;
+    font-size: 18px;
+    color: #8f8fa1;
+    line-height: 1.2;
+    align-content: center;
+}

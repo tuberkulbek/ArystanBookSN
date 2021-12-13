@@ -1,0 +1,12 @@
+.item {
+    display: grid;
+    grid-template-areas:
+    "f m";
+    grid-template-columns: 3fr 9fr;
+    grid-template-rows: max-content;
+}
+
+.friend {
+    grid-area: f;
+    justify-content: start;
+}

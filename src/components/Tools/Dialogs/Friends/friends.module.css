@@ -1,0 +1,5 @@
+.items {
+    padding: 1px 20px 30px 20px;
+    display: grid;
+    justify-content: start;
+}

@@ -1,0 +1,13 @@
+.item {
+    height: 71px;
+    color: #FDF4E3;
+}
+
+.items {
+    border-left: 1px solid white;
+    background-color: crimson;
+}
+
+.item1 {
+    padding: 20px 10px;
+}

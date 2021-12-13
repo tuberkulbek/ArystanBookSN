@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+    "h h"
+    "n d";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.container-content {
+    grid-area: d;
+    background-color: purple;
+    font-style: italic;
+    color: #FF8000;
+}
+
