@@ -1,24 +1,24 @@
 import './index.css';
 import React from "react";
 import reportWebVitals from './reportWebVitals';
-import state, {addMessage, addPost, newRenderTree, updateMessageText, updateNewPostText} from "./redux/state";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
+import store from "./redux/store";
 
-let rerender = () => ReactDOM.render(
+let rerender = (state) => ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <App state={state}
-                 addPost={addPost}
-                 updateNewPostText={updateNewPostText}
-                 addMessage={addMessage}
-                 updateMessageText={updateMessageText}/>
+                 addPost={store.addPost.bind(store)}
+                 updateNewPostText={store.updateNewPostText.bind(store)}
+                 addMessage={store.addMessage.bind(store)}
+                 updateMessageText={store.updateMessageText.bind(store)}/>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );
-rerender(state);
-newRenderTree(rerender);
+rerender(store.getState());
+store.newRenderTree(rerender);
 
 reportWebVitals();

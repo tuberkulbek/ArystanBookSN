@@ -1,16 +1,12 @@
-let rerender = () => {
-    console.log('sdvcsv')
-}
-
 let store = {
     _state: {
         toolPage: {
             dialogPage: {
                 messageData: [
                     {message: 'Hello, World', id: 1},
-                    {message: 'Send nudes', id: 2},
+                    {message: 'ofvnlzkvn nlrknf', id: 2},
                     {message: 'Poshel nahyi', id: 3},
-                    {message: 'скинь домашку', id: 4},
+                    {message: 'nlsvkf nvls kvf', id: 4},
                 ],
                 friendData: [
                     {
@@ -61,6 +57,9 @@ let store = {
             ]
         }
     },
+    _callObserver(){
+        console.log('sdvcsv')
+    },
     getState(){
         return this._state
     },
@@ -71,12 +70,12 @@ let store = {
             id: 5
         }
         this._state.toolPage.postPage.postData.push(postInfo)
-        updateNewPostText('');
-        rerender();
+        this.updateNewPostText('');
+        this._callObserver(this._state);
     },
     updateNewPostText(newText){
         this._state.toolPage.postPage.newPostText = newText;
-        rerender();
+        this._callObserver(this._state);
     },
     addMessage(){
         let messageInfo = {
@@ -84,17 +83,19 @@ let store = {
             id: 5
         }
         this._state.toolPage.dialogPage.messageData.push(messageInfo)
-        updateMessageText('');
-        rerender()
+        this.updateMessageText('');
+        this._callObserver(this._state)
     },
     updateMessageText(newText){
         this._state.toolPage.dialogPage.newMessageText = newText;
-        rerender()
+        this._callObserver(this._state)
+    },
+    newRenderTree(observer){
+        this._callObserver = observer;
     }
 }
 
-export const newRenderTree = (observer) => {
-    rerender = observer;
-}
+
+window.store = store;
 
 export default store;
