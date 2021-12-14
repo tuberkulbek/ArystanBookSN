@@ -1,18 +1,22 @@
 import s from './Messages.module.css'
 import Message from "./Message/Message";
 import React from "react";
+import {addMessageAC, updateMessageTextAC} from "../../../../redux/store";
+
 
 const Messages = (props) => {
     let newMessageElement = React.createRef();
 
-    let message = () => {
-        props.addMessage(props.newMessageText);
+    let addMessage = () => {
+        props.dispatch(addMessageAC());
     };
 
     let updateMessageText = () => {
-        let text = newMessageElement.current.value;
-        props.updateMessageText(text);
+        let NewText = newMessageElement.current.value;
+        let action = updateMessageTextAC(NewText)
+        props.dispatch(action);
     }
+
 
     let messageElement = props.messageData.map(m => <Message message={m.message} id={m.id} />);
     return (
@@ -22,7 +26,7 @@ const Messages = (props) => {
                 <textarea ref={newMessageElement}
                           value={props.newMessageText}
                           onChange={updateMessageText}/>
-                <button onClick={message} >send</button>
+                <button onClick={addMessage} >send</button>
             </div>
         </div>
     );

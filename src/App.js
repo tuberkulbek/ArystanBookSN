@@ -10,10 +10,7 @@ function App(props) {
             <Navbar addressData={props.state.addressPage.addressData}/>
             <div className="container-content">
                 <Tools toolState={props.state.toolPage}
-                       addPost={props.addPost}
-                       updateNewPostText={props.updateNewPostText}
-                       addMessage={props.addMessage}
-                       updateMessageText={props.updateMessageText}/>
+                       dispatch={props.dispatch} />
             </div>
         </div>
     );

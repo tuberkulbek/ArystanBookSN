@@ -1,19 +1,24 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from "react";
+import {addPostAC, updateNewPostTextAC} from "../../../../redux/store";
 
 const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.addPost(props.newPostText);
+        props.dispatch(addPostAC());
     }
     let updateNewPostText = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        let action = updateNewPostTextAC(text)
+        props.dispatch(action);
     }
 
-    let postElement = props.postData.map( post => <Post message={post.message} likes={post.likes} /> );
+    let postElement = props.postData.map( post => <Post message={post.message}
+                                                        likes={post.likes}
+                                                        id={post.id}
+                                                        dispatch={props.dispatch} /> );
     return (
         <div className={s.items}>
             <div>My posts</div>

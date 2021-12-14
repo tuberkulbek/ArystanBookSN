@@ -57,44 +57,58 @@ let store = {
             ]
         }
     },
-    _callObserver(){
+    _callObserver() {
         console.log('sdvcsv')
     },
-    getState(){
+
+    getState() {
         return this._state
     },
-    addPost(){
-        let postInfo = {
-            message: this._state.toolPage.postPage.newPostText,
-            likes: 0,
-            id: 5
-        }
-        this._state.toolPage.postPage.postData.push(postInfo)
-        this.updateNewPostText('');
-        this._callObserver(this._state);
-    },
-    updateNewPostText(newText){
-        this._state.toolPage.postPage.newPostText = newText;
-        this._callObserver(this._state);
-    },
-    addMessage(){
-        let messageInfo = {
-            message: this._state.toolPage.dialogPage.newMessageText,
-            id: 5
-        }
-        this._state.toolPage.dialogPage.messageData.push(messageInfo)
-        this.updateMessageText('');
-        this._callObserver(this._state)
-    },
-    updateMessageText(newText){
-        this._state.toolPage.dialogPage.newMessageText = newText;
-        this._callObserver(this._state)
-    },
-    newRenderTree(observer){
+    newRenderTree(observer) {
         this._callObserver = observer;
+    },
+
+    dispatch(action) { // (type: 'ADD-POST')
+        if (action.type === 'addPost') {
+            let postInfo = {
+                message: this._state.toolPage.postPage.newPostText,
+                likes: 0,
+                id: 5
+            }
+            this._state.toolPage.postPage.postData.push(postInfo)
+            this._state.toolPage.postPage.newPostText = ''
+            this._callObserver(this._state);
+        } else if (action.type === 'updateNewPostText') {
+            this._state.toolPage.postPage.newPostText = action.newText;
+            this._callObserver(this._state);
+        } else if (action.type === 'addMessage') {
+            let messageInfo = {
+                message: this._state.toolPage.dialogPage.newMessageText,
+                id: 5
+            }
+            this._state.toolPage.dialogPage.messageData.push(messageInfo)
+            this._state.toolPage.dialogPage.newMessageText = ''
+            this._callObserver(this._state)
+        } else if (action.type === 'updateMessageText') {
+            this._state.toolPage.dialogPage.newMessageText = action.NewText;
+            this._callObserver(this._state)
+        } else if (action.type === 'LikePressed') {
+            const kike = this._state.toolPage.postPage.postData.find((item)=>item.id === action.id)
+            if (kike) {
+                kike.likes++;
+                this._callObserver(this._state)
+            }
+
+
+        }
     }
 }
 
+export const addPostAC = () => ({type: "addPost"})
+export const updateNewPostTextAC = (text) => ({type: "updateNewPostText", newText: text})
+export const addMessageAC = () => ({type: "addMessage"})
+export const updateMessageTextAC = (NewText) => ({type: "updateMessageText", NewText: NewText,})
+export const LikePressedAC = (id) => ({type: "LikePressed", id: id})
 
 window.store = store;
 
