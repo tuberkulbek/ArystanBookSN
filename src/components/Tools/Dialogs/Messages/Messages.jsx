@@ -3,7 +3,6 @@ import Message from "./Message/Message";
 import React from "react";
 import {addMessageAC, updateMessageTextAC} from "../../../../redux/store";
 
-
 const Messages = (props) => {
     let newMessageElement = React.createRef();
 
@@ -16,7 +15,6 @@ const Messages = (props) => {
         let action = updateMessageTextAC(NewText)
         props.dispatch(action);
     }
-
 
     let messageElement = props.messageData.map(m => <Message message={m.message} id={m.id} />);
     return (

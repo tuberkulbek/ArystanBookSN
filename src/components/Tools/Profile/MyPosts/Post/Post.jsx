@@ -1,4 +1,5 @@
 import s from './Post.module.css'
+/*import {LikePressedAC} from "../../../../../redux/profile-reducer";*/
 import {LikePressedAC} from "../../../../../redux/store";
 
 const Post = (props) => {
@@ -8,7 +9,7 @@ const Post = (props) => {
 
     return (
         <div>
-            <div className={s.item}>
+            <div className={s.item} id={props.id}>
                 <img src='https://pngpress.com/wp-content/uploads/2020/08/uploads_circle_circle_PNG62.png'
                      alt={'Paris'}/>
                 {props.message}

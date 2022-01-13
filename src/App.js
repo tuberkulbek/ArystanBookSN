@@ -7,10 +7,10 @@ function App(props) {
     return (
         <div className="container">
             <Header/>
-            <Navbar addressData={props.state.addressPage.addressData}/>
+            <Navbar/>
             <div className="container-content">
-                <Tools toolState={props.state.toolPage}
-                       dispatch={props.dispatch} />
+                <Tools state={props.state}
+                       dispatch={props.dispatch}/>
             </div>
         </div>
     );
