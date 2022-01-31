@@ -1,6 +1,6 @@
 import s from './profile.module.css'
-import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/profileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 const Profile = (props) => {
@@ -11,7 +11,7 @@ const Profile = (props) => {
                 alt="elephant"
             />
             <ProfileInfo />
-            <MyPosts postData={props.postPage.postData}
+            <MyPostsContainer postData={props.postPage.postData}
                      newPostText={props.postPage.newPostText}
                      dispatch={props.dispatch}/>
         </div>
