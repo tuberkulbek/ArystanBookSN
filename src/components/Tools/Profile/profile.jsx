@@ -11,9 +11,7 @@ const Profile = (props) => {
                 alt="elephant"
             />
             <ProfileInfo />
-            <MyPostsContainer postData={props.postPage.postData}
-                     newPostText={props.postPage.newPostText}
-                     dispatch={props.dispatch}/>
+            <MyPostsContainer/>
         </div>
     );
 };

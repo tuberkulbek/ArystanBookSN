@@ -1,17 +1,15 @@
 import s from './dialogs.module.css'
 import Friends from "./Friends/friends";
-import Messages from "./Messages/Messages";
+import MessagesContainer from "./Messages/MessagesContainer";
 
 const Dialogs = (props) => {
     return (
         <div className={s.item}>
             <div className={s.friend}>
-                <Friends dialogData={props.dialogData.friendData}/>
+                <Friends dialogData={props.dialogData}/>/>
             </div>
-            <div className={s.message}>
-                <Messages messageData={props.dialogData.messageData}
-                          dispatch={props.dispatch}
-                          newMessageText={props.dialogData.newMessageText}/>
+            <div>
+                <MessagesContainer/>
             </div>
         </div>
     );

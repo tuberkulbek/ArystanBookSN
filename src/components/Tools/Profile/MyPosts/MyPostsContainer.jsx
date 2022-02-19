@@ -1,38 +1,29 @@
-import s from './MyPosts.module.css'
-import Post from "./Post/Post";
-import React from "react";
-import {addPostAC, LikePressedAC, updateNewPostTextAC} from "../../../../redux/store";
 import MyPosts from "./MyPosts";
+import {addPostAC, LikePressedAC, updateNewPostTextAC} from "../../../../redux/profile-reducer";
+import {connect} from "react-redux";
 
-const MyPostsContainer = (props) => {
-    let newPostElement = React.createRef();
-
-    let addPost = () => {
-        props.dispatch(addPostAC());
+const mapStateToProps = (state) =>{
+    return{
+        postData: state.postPage.postData,
+        newPostText: state.postPage.newPostText
     }
-    let updateNewPostText = () => {
-        let text = newPostElement.current.value;
-        let action = updateNewPostTextAC(text)
-        props.dispatch(action);
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addPost: () => {
+            dispatch(addPostAC())
+        },
+        updateNewPostText: (text) => {
+            let action = updateNewPostTextAC(text)
+            dispatch(action)
+        },
+        addLike: (id) => {
+            dispatch(LikePressedAC(id))
+        },
     }
+}
 
-    let addLike = (id) => {
-        props.dispatch(LikePressedAC(id))
-    };
-
-    let postElement = props.postData.map( post => <Post message={post.message}
-                                                        likes={post.likes}
-                                                        id={post.id}
-                                                        addLike={addLike} /> );
-
-    return (
-        <MyPosts newPostElement={newPostElement}
-                 addPost={addPost}
-                 updateNewPostText={updateNewPostText}
-                 postData={props.postData}
-                 postElement={postElement}
-        />
-    );
-};
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;

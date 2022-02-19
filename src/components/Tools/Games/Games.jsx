@@ -1,7 +1,7 @@
 import s from './Games.module.css'
 import React from "react";
 import Game from "./Game/Game";
-import {resetGameAC} from "../../../redux/store";
+import {resetGameAC} from "../../../redux/game-reducer";
 
 const Games = (props) => {
     let gameElement = props.gamePage.block.map( post => <Game name={post.name}

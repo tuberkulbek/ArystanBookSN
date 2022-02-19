@@ -12,16 +12,17 @@ function Tools(props) {
     return (
         <div>
             <Routes>
-                <Route exact path="/profile" element={<Profile postPage={props.state.postPage}
-                                                               dispatch={props.dispatch}/>}/>
-                <Route exact path="/messages" element={<Friends dialogData={props.state.dialogPage.friendData}/>}/>
-                <Route exact path={`/messages/1`} element={<Dialogs dialogData={props.state.dialogPage}
-                                                                    dispatch={props.dispatch}/>}/>
+                <Route exact path="/profile" element={<Profile/>}/>
+                <Route exact path="/messages"
+                       element={<Friends dialogData={props.store.getState().dialogPage.friendData}/>}/>
+                <Route exact path={`/messages/1`}
+                       element={<Dialogs dialogData={props.store.getState().dialogPage.friendData}/>}/>
                 <Route path="/music" element={<Music/>}/>
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/news" element={<News/>}/>
-                <Route path="/games" element={<Games dispatch={props.dispatch} gamePage={props.state.gamePage}/>}/>
-                <Route path="/todo" element={<Todo dispatch={props.dispatch}/>}/>
+                <Route path="/games" element={<Games dispatch={props.store.dispatch}
+                                                     gamePage={props.store.getState().gamePage}/>}/>
+                <Route path="/todo" element={<Todo/>}/>
             </Routes>
         </div>
     )
