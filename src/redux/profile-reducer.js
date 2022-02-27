@@ -21,29 +21,33 @@ const profileReducer = (state = initialState, action) => {
                 id: state.postData[state.postData.length-1].id
             }
             postInfo.id++
-            let stateCopy = {...state};
-            stateCopy.postData = [...state.postData];
-            stateCopy.postData.push(postInfo);
-            stateCopy.newPostText = ''
-            return stateCopy;
+            return {
+                ...state,
+                postData: [...state.postData, postInfo],
+                newPostText: ''
+            };
         }
         case updateNewPostText:{
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.newText
+            };
         }
         case LikePressed:{
-            let stateCopy = {...state};
-            stateCopy.postData = [...state.postData];
-            const kike = stateCopy.postData.find((item) => item.id === action.id)
-            if (kike) {
-                kike.likes++;
-            }
-            return stateCopy;
+            return {
+                ...state,
+                postData: [...state.postData.map((item) => {
+                    if(item.id === action.id){
+                        item.likes++;
+                    }
+                    return item
+                })]
+            };
         }
         default:{
-            let stateCopy = {...state};
-            return stateCopy;
+            return {
+                ...state
+            };
         }
     }
 }
