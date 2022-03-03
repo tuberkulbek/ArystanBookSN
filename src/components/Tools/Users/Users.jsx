@@ -1,35 +1,33 @@
 import s from './Users.module.css'
 import * as axios from "axios";
+import React from "react";
 
-const User = (props) => {
-    if (props.users.length === 0){
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(r => props.setUsers(r.data.items))
-
+class Users extends React.Component {
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(r => this.props.setUsers(r.data.items))
     }
-    return (<div className={s.items}>
-        {
-            props.users.map(u => {
-                return (
-                    <div key={u.id}>
+
+    render(){
+        return (<div className={s.items}>
+            {
+                this.props.users.map(u => {
+                    return (
+                        <div>
                         <span>
                             <div>
                                 <img src={u.photos.small} alt={u.id}/>
                             </div>
                             <div>
                                 {u.followed ?
-                                    <button onClick={() => {
-                                        props.unfollow(u.id)
-                                    }}>
+                                    <button onClick={() => {this.props.unfollow(u.id)}}>
                                         FOLLOW
                                     </button>:
-                                    <button onClick={() => {
-                                        props.follow(u.id)
-                                    }}>
+                                    <button onClick={() => {this.props.follow(u.id)}}>
                                         UNFOLLOW
                                     </button>}
                             </div>
                         </span>
-                        <span>
+                            <span>
                             <span>
                                 <div>
                                     {u.name}
@@ -47,11 +45,12 @@ const User = (props) => {
                                 </div>
                             </span>
                         </span>
-                    </div>
-                )
-            })
-        }
-    </div>);
-};
+                        </div>
+                    )
+                })
+            }
+        </div>);
+    }
+}
 
-export default User;
+export default Users;

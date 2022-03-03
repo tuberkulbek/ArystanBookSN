@@ -7,7 +7,7 @@ import News from "./News/News";
 import Friends from "./Dialogs/Friends/friends";
 import Games from "./Games/Games";
 import Todo from "./TODO/Todo";
-import UserContainer from "./Users/UserContainer";
+import UsersContainer from "./Users/UsersContainer";
 
 function Tools(props) {
     return (
@@ -24,7 +24,7 @@ function Tools(props) {
                 <Route path="/games" element={<Games dispatch={props.store.dispatch}
                                                      gamePage={props.store.getState().gamePage}/>}/>
                 <Route path="/todo" element={<Todo/>}/>
-                <Route path="/users" element={<UserContainer/>}/>
+                <Route path="/users" element={<UsersContainer/>}/>
             </Routes>
         </div>
     )

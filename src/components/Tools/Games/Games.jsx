@@ -6,6 +6,7 @@ import {resetGameAC} from "../../../redux/game-reducer";
 const Games = (props) => {
     let gameElement = props.gamePage.block.map( post => <Game name={post.name}
                                                      id={post.id}
+                                                     key={post.id}
                                                      dispatch={props.dispatch}/> );
     let reset = () => {
         props.dispatch(resetGameAC())
