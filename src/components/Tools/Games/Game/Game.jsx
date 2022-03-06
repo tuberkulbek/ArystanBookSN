@@ -1,5 +1,5 @@
 import s from './Game.module.css'
-import {tictacAC} from "../../../../redux/game-reducer";
+import {tictacAC} from '../../../../redux/game-reducer';
 
 const Game = (props) => {
     let ttt = (id) => {
