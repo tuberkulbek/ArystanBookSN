@@ -9,7 +9,7 @@ const Friend = (props) => {
             </div>
             <div className={s.nav}>
                 <NavLink to={"/messages/" + props.id}
-                         className={navData1 => navData1.isActive ? s.activeLink : s.item1}>{props.name}</NavLink>
+                         className={s.item1}>{props.name}</NavLink>
             </div>
         </nav>
     );

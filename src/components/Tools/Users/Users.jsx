@@ -1,6 +1,7 @@
 import s from './Users.module.css'
-
 import React from "react";
+import user from "../../../user.png"
+import Loader from "../../../common/Loader";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -14,7 +15,7 @@ const Users = (props) => {
             {
                 pages.map(p => <span
                     className={`${props.currentPage === p && s.selectedPage} ${s.pages}`}
-                    onClick={(e) => {
+                    onClick={() => {
                         props.onPageChange(p)
                     }}
                     key={`qweqwe${p}`}>{p}</span>)
@@ -23,14 +24,14 @@ const Users = (props) => {
         {props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photos.small} alt={u.id}/>
+                    {props.isFetching ? <Loader /> : <img src={u.photos.small != null ? u.photos.small : user} alt={}/>}
                 </div>
                 <div>
-                    {u.followed ? <button onClick={() => {
+                    {u.followed ? <button className={s.button7} onClick={() => {
                         props.unfollow(u.id)
                     }}>
                         FOLLOW
-                    </button> : <button onClick={() => {
+                    </button> : <button className={s.button7} onClick={() => {
                         props.follow(u.id)
                     }}>
                         UNFOLLOW
