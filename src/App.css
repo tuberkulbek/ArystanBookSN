@@ -9,8 +9,7 @@
 
 .container-content {
     grid-area: d;
-    background-color: purple;
+    background-color: #303030;
     font-style: italic;
     color: #FF8000;
 }
-

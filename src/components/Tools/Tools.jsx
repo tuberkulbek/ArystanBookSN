@@ -8,21 +8,23 @@ import Friends from "./Dialogs/Friends/friends";
 import Games from "./Games/Games";
 import Todo from "./TODO/Todo";
 import UsersContainer from "./Users/UsersContainer";
+import FriendsContainer from "./Dialogs/Friends/FriendsContainer";
+import ProfileContainer from "./Profile/ProfileContainer";
+import GamesContainer from "./Games/GamesContainer";
 
 function Tools(props) {
     return (
         <div>
             <Routes>
-                <Route exact path="/profile" element={<Profile/>}/>
+                <Route path="/profile" element={<ProfileContainer />}/>
                 <Route exact path="/messages"
-                       element={<Friends dialogData={props.store.getState().dialogPage.friendData}/>}/>
+                       element={<FriendsContainer/>}/>
                 <Route exact path={`/messages/1`}
-                       element={<Dialogs dialogData={props.store.getState().dialogPage.friendData}/>}/>
+                       element={<Dialogs/>}/>
                 <Route path="/music" element={<Music/>}/>
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/news" element={<News/>}/>
-                <Route path="/games" element={<Games dispatch={props.store.dispatch}
-                                                     gamePage={props.store.getState().gamePage}/>}/>
+                <Route path="/games" element={<GamesContainer />}/>
                 <Route path="/todo" element={<Todo/>}/>
                 <Route path="/users" element={<UsersContainer/>}/>
             </Routes>

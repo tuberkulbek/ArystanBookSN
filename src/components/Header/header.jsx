@@ -1,9 +1,10 @@
 import s from './header.module.css'
+import logo from '../../logo.png'
 
 const Header = () => {
     return (
         <header className={s.header}>
-            <img src="https://www.pinclipart.com/picdir/big/540-5400645_logo-tiger-png-hd-clipart.png" alt={'Lion'}/>
+            <img src={logo} alt={'Lion'}/>
             ArysBook
         </header>
     );

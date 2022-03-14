@@ -1,8 +1,8 @@
 import preloader from "../preloader.svg"
 import React from "react";
 
-const Loader = () => {
-    return <img src={preloader} />
+const Loader = (props) => {
+    return <img src={preloader} alt={"ads"}/>
 }
 
 export default Loader;

@@ -1,6 +1,6 @@
-const addPost = "addPost"
-const updateNewPostText = "updateNewPostText"
-const LikePressed = "LikePressed"
+const ADD_POST = "ADD_POST"
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+const LIKE_PRESSED = "LIKE_PRESSED"
 
 let initialState = {
     postData: [
@@ -14,7 +14,7 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case addPost:{
+        case ADD_POST:{
             let postInfo = {
                 message: state.newPostText,
                 likes: 0,
@@ -27,13 +27,13 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: ''
             };
         }
-        case updateNewPostText:{
+        case UPDATE_NEW_POST_TEXT:{
             return {
                 ...state,
                 newPostText: action.newText
             };
         }
-        case LikePressed:{
+        case LIKE_PRESSED:{
             return {
                 ...state,
                 postData: [...state.postData.map((item) => {
@@ -52,8 +52,8 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostAC = () => ({type: addPost})
-export const updateNewPostTextAC = (text) => ({type: updateNewPostText, newText: text})
-export const LikePressedAC = (id) => ({type: LikePressed, id: id})
+export const addPost = () => ({type: ADD_POST})
+export const updateNewPostText = (newText) => ({type: UPDATE_NEW_POST_TEXT, newText})
+export const LikePressed = (id) => ({type: LIKE_PRESSED, id})
 
 export default profileReducer

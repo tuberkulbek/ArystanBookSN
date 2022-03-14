@@ -7,7 +7,7 @@ const MyPosts = (props) => {
                                                         likes={post.likes}
                                                         id={post.id}
                                                         key={post.id}
-                                                        addLike={props.addLike} /> );
+                                                        addLike={props.LikePressed} /> );
 
     let newPostElement = React.createRef();
 
@@ -23,11 +23,16 @@ const MyPosts = (props) => {
     return (
         <div className={s.items}>
             <div>My posts</div>
-            <textarea ref={newPostElement}
-                      placeholder={'New post'}
-                      value={props.newPostText}
-                      onChange={updateNewPostText}/>
-            <button onClick={addPost}>add post</button>
+            <div className={s.container}>
+                <textarea ref={newPostElement}
+                          placeholder={'New post'}
+                          className={s.textarea}
+                          value={props.newPostText}
+                          onChange={updateNewPostText}/>
+                <button className={s.btn6} onClick={addPost}>
+                    <span>add post</span>
+                </button>
+            </div>
             {postElement}
         </div>
     );

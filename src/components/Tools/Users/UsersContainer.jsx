@@ -1,14 +1,15 @@
-import {connect} from 'react-redux';
+import {connect} from "react-redux";
 import {
-    followAC, setLoaderAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    setUsersPageAC,
-    unfollowAC
+    follow, setLoader,
+    setTotalUsersCount,
+    setUsers,
+    setUsersPage,
+    unfollow
 } from "../../../redux/users-reducer";
 import React from "react";
 import * as axios from "axios";
 import Users from "./Users";
+import Loader from "../../../common/Loader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -36,6 +37,8 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
+            {console.log(this.props)}
+            {this.props.isFetching ? <Loader /> : null}
             <Users totalUserCount={this.props.totalUserCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
@@ -59,7 +62,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
             dispatch(followAC(userId))
@@ -80,6 +83,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(setLoaderAC(isFetching))
         }
     }
-}
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {follow, unfollow, setUsers, setUsersPage, setTotalUsersCount, setLoader})(UsersContainer)

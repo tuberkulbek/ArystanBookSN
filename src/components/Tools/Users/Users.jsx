@@ -1,7 +1,8 @@
-import s from './Users.module.css'
+import s from "./Users.module.css";
 import React from "react";
-import user from "../../../user.png"
+import user from "../../../user.png";
 import Loader from "../../../common/Loader";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -24,7 +25,10 @@ const Users = (props) => {
         {props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    {props.isFetching ? <Loader /> : <img src={u.photos.small != null ? u.photos.small : user} alt={}/>}
+                    {props.isFetching ? <Loader /> :
+                        <NavLink to={`/profile/${u.id}`}>
+                            <img src={u.photos.small != null ? u.photos.small : user} alt={u.id}/>
+                        </NavLink>}
                 </div>
                 <div>
                     {u.followed ? <button className={s.button7} onClick={() => {
