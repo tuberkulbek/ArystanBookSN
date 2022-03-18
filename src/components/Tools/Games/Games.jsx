@@ -1,7 +1,6 @@
 import s from './Games.module.css'
 import React from "react";
 import Game from "./Game/Game";
-import {resetGame} from "../../../redux/game-reducer";
 
 const Games = (props) => {
     console.log(props)

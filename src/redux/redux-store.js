@@ -3,11 +3,13 @@ import dialogReducer from "./dialog-reducer";
 import profileReducer from "./profile-reducer";
 import gameReducer from "./game-reducer";
 import usersReducer from "./users-reducer";
+import todoReducer from "./todo-reducer";
 
 let reducers = combineReducers({
     dialogPage: dialogReducer,
-    postPage: profileReducer,
+    profilePage: profileReducer,
     gamePage: gameReducer,
+    todoPage: todoReducer,
     userPage: usersReducer
 })
 

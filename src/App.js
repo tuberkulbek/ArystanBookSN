@@ -9,7 +9,7 @@ function App(props) {
             <Header/>
             <Navbar/>
             <div className="container-content">
-                <Tools store={props.store}/>
+                <Tools />
             </div>
         </div>
     );
