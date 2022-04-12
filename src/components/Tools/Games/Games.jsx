@@ -3,7 +3,6 @@ import React from "react";
 import Game from "./Game/Game";
 
 const Games = (props) => {
-    console.log(props)
     return (
         <div>
             <div>

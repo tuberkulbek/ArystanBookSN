@@ -25,21 +25,22 @@ const Users = (props) => {
         {props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    {props.isFetching ? <Loader /> :
-                        <NavLink to={`/profile/${u.id}`}>
+                    {props.isFetching
+                        ? <Loader />
+                        : <NavLink to={`/profile/${u.id}`}>
                             <img src={u.photos.small != null ? u.photos.small : user} alt={u.id}/>
                         </NavLink>}
                 </div>
                 <div>
-                    {u.followed ? <button className={s.button7} onClick={() => {
-                        props.unfollow(u.id)
-                    }}>
-                        FOLLOW
-                    </button> : <button className={s.button7} onClick={() => {
-                        props.follow(u.id)
-                    }}>
-                        UNFOLLOW
-                    </button>}
+                    {u.followed
+                        ? <button disabled={props.isInProgress.some(id=>id===u.id)}
+                                  className={s.button7}
+                                  onClick={() => {props.unfollow(u.id)}}>
+                        UNFOLLOW </button>
+                        : <button disabled={props.isInProgress.some(id=>id===u.id)}
+                                  className={s.button7}
+                                  onClick={() => {props.follow(u.id)}}>
+                        FOLLOW </button>}
                 </div>
             </span>
             <span>
