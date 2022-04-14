@@ -4,6 +4,7 @@ const ADD_POST = "ADD_POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
 const LIKE_PRESSED = "LIKE_PRESSED"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
+const ADD_PHOTO = "ADD_PHOTO"
 
 let initialState = {
     postData: [
@@ -56,6 +57,13 @@ const profileReducer = (state = initialState, action) => {
                 profileID: action.profile.userId,
             };
         }
+        case ADD_PHOTO:{
+            return {
+                ...state,
+                profile: action.profile,
+                profileID: action.profile.userId,
+            };
+        }
         default:{
             return {
                 ...state
@@ -68,10 +76,18 @@ export const addPost = () => ({type: ADD_POST})
 export const updateNewPostText = (newText) => ({type: UPDATE_NEW_POST_TEXT, newText})
 export const LikePressed = (id) => ({type: LIKE_PRESSED, id})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+const changePhoto = (data) => ({type:ADD_PHOTO, data})
 export const getUserProfile = (userId) => {
     return (dispatch) => {
         usersAPI.getUserProfile(userId).then(data => {
             dispatch(setUserProfile(data));
+        })
+    }
+}
+export const addPhoto = (userId) => {
+    return (dispatch) => {
+        usersAPI.addPhoto(userId).then(data => {
+            dispatch(changePhoto(data));
         })
     }
 }

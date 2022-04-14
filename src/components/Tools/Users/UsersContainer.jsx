@@ -22,19 +22,8 @@ class UsersContainer extends React.Component {
     render() {
         return <>
             {this.props.isFetching ? <Loader/> : null}
-            <Users //state
-                   totalUserCount={this.props.totalUserCount}
-                   users={this.props.users}
-                   pageSize={this.props.pageSize}
-                   currentPage={this.props.currentPage}
-                   isFetching={this.props.isFetching}
-                   isInProgress={this.props.isInProgress}
-                   //dispatch
-                   onPageChange={this.onPageChange}
-                   follow={this.props.follow}
-                   unfollow={this.props.unfollow}
-                   setLoader={this.props.setLoader}
-                   disableFollowingButton={this.props.disableFollowingButton}/>
+            <Users {...this.props}
+                   onPageChange={this.onPageChange}/>
         </>;
     }
 }

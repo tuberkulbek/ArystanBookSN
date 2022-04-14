@@ -23,6 +23,9 @@ export const usersAPI = {
     },
     getUserProfile(userId){
         return instance.get(`profile/`+ userId).then(r=>r.data)
+    },
+    addPhoto(userId){
+        return instance.post(`profile/${userId}`, {}).then(r=>r.data)
     }
 }
 

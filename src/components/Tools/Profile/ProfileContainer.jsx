@@ -1,8 +1,10 @@
 import Profile from "./profile";
 import React from "react";
 import {connect} from "react-redux";
-import {getUserProfile} from "../../../redux/profile-reducer";
-import {useMatch} from "react-router";
+import {addPhoto, getUserProfile} from "../../../redux/profile-reducer";
+import {Navigate, useMatch} from "react-router";
+import {withAuthNavigate} from "../../../HOC/authNavigate";
+import {compose} from "redux";
 
 export const withRouter = (Component) =>{
     return (props) => {
@@ -27,8 +29,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-let WithRouterExtraComponent = withRouter(ProfileContainer)
-
-export default connect(mapStateToProps, {
-    getUserProfile,
-})(WithRouterExtraComponent)
+export default compose(
+    connect(mapStateToProps, {
+        getUserProfile,
+        addPhoto
+    }),
+    withRouter,
+    withAuthNavigate
+)(ProfileContainer)

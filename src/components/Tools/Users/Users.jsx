@@ -3,6 +3,7 @@ import React from "react";
 import user from "../../../user.png";
 import Loader from "../../../common/Loader";
 import {NavLink} from "react-router-dom";
+import Pagination from "./Pagination";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -12,23 +13,18 @@ const Users = (props) => {
     }
 
     return <div className={s.items}>
-        <div>
-            {
-                pages.map(p => <span
-                    className={`${props.currentPage === p && s.selectedPage} ${s.pages}`}
-                    onClick={() => {
-                        props.onPageChange(p)
-                    }}
-                    key={`qweqwe${p}`}>{p}</span>)
-            }
-        </div>
-        {props.users.map(u => <div key={u.id}>
-            <span>
-                <div>
-                    {props.isFetching
-                        ? <Loader />
-                        : <NavLink to={`/profile/${u.id}`}>
-                            <img src={u.photos.small != null ? u.photos.small : user} alt={u.id}/>
+        <Pagination currentPage={props.currentPage}
+                    totalUserCount={props.totalUserCount}
+                    pageSize={props.pageSize}
+                    onPageChange={props.onPageChange}/>
+        {props.users.map(u =>
+            <div key={u.id}>
+                <span>
+                    <div>
+                        {props.isFetching
+                            ? <Loader />
+                            : <NavLink to={`/profile/${u.id}`}>
+                                <img src={u.photos.small != null ? u.photos.small : user} alt={u.id}/>
                         </NavLink>}
                 </div>
                 <div>

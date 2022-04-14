@@ -1,7 +1,9 @@
 import s from './profileInfo.module.css'
 import Loader from "../../../../common/Loader";
+import user from "../../../../user.png"
 
 const ProfileInfo = (props) => {
+    console.log(props)
     if(!props.profile){
         return <Loader/>
     }
@@ -11,8 +13,9 @@ const ProfileInfo = (props) => {
                 src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
                 alt="elephant"
             />
-            <div>
-                <img src={props.profile.photos.small}/>
+            <div className={s.profilePhoto}>
+                <img src={props.profile.photos.small != null ? props.profile.photos.small : user} alt={'asfvds'}/>
+                <button onClick={() => {props.addPhoto(props.profile.userId)}}>+</button>
             </div>
             <div>
                 {props.profile.aboutMe}
