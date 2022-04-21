@@ -2,7 +2,7 @@ import s from "./Pass.module.css"
 
 const Pass = () => {
     return <div>
-        <textarea
+        <input
             className={s.passArea}
             placeholder={'Password'}/>
     </div>

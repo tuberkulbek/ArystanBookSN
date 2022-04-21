@@ -1,5 +1,4 @@
 import s from './Post.module.css'
-/*import {LikePressedAC} from "../../../../../redux/profile-reducer";*/
 
 const Post = (props) => {
     return (
@@ -12,7 +11,8 @@ const Post = (props) => {
             <div className={s.likes}>
                 <div className={s.like}>likes</div>
                 <div className={s.btns}>
-                    <button className={s.btn} onClick={()=>props.addLike(props.id)}>
+                    <button className={s.btn}
+                            onClick={()=>props.isLiked ? props.dislike(props.id) : props.like(props.id)}>
                         <img src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"
                              alt="Snow"/>
                     </button>

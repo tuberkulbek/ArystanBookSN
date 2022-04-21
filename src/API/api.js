@@ -21,11 +21,25 @@ export const usersAPI = {
     follow(id){
         return instance.post(`follow/${id}`, {}).then(r=>r.data)
     },
-    getUserProfile(userId){
-        return instance.get(`profile/`+ userId).then(r=>r.data)
-    },
     addPhoto(userId){
-        return instance.post(`profile/${userId}`, {}).then(r=>r.data)
+        return instance.put(`profile/${userId}`, {}).then(r=>r.data)
     }
 }
 
+export const profileAPI = {
+    getUserProfile(userId){
+        return instance.get(`profile/`+ userId).then(r=>r.data)
+    },
+    getUserStatus(userId){
+        return instance.get(`profile/status/${userId}`).then(r=>r.data)
+    },
+    updateStatus(status){
+        return instance.put(`profile/status/`, {status}).then(r=>r.data)
+    }
+}
+
+export const AUTHmeAPI = {
+    getIsAUTH(){
+        return instance.get('auth/me').then(r=>r.data)
+    }
+}

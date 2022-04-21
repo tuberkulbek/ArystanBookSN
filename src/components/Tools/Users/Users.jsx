@@ -1,9 +1,8 @@
 import s from "./Users.module.css";
 import React from "react";
-import user from "../../../user.png";
-import Loader from "../../../common/Loader";
-import {NavLink} from "react-router-dom";
 import Pagination from "./Pagination";
+import FollowUnfollowButton from "./Follow/UnfollowButton";
+import UserPhoto from "./UserPhoto/UserPhoto";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -20,44 +19,34 @@ const Users = (props) => {
         {props.users.map(u =>
             <div key={u.id}>
                 <span>
-                    <div>
-                        {props.isFetching
-                            ? <Loader />
-                            : <NavLink to={`/profile/${u.id}`}>
-                                <img src={u.photos.small != null ? u.photos.small : user} alt={u.id}/>
-                        </NavLink>}
-                </div>
-                <div>
-                    {u.followed
-                        ? <button disabled={props.isInProgress.some(id=>id===u.id)}
-                                  className={s.button7}
-                                  onClick={() => {props.unfollow(u.id)}}>
-                        UNFOLLOW </button>
-                        : <button disabled={props.isInProgress.some(id=>id===u.id)}
-                                  className={s.button7}
-                                  onClick={() => {props.follow(u.id)}}>
-                        FOLLOW </button>}
-                </div>
-            </span>
-            <span>
-                <span>
-                    <div>
-                        {u.name}
-                    </div>
-                    <div>
-                        {u.status}
-                    </div>
+                    <UserPhoto isFetching={props.isFetching}
+                               photos={u.photos}
+                               id={u.id}/>
+                    <FollowUnfollowButton followed={u.followed}
+                                          id={u.id}
+                                          follow={props.follow}
+                                          unfollow={props.unfollow}
+                                          isInProgress={props.isInProgress}/>
                 </span>
                 <span>
-                    <div>
-                        {"u.location.country"}
-                    </div>
-                    <div>
-                        {"u.location.city"}
-                    </div>
+                    <span>
+                        <div>
+                            {u.name}
+                        </div>
+                        <div>
+                            {u.status}
+                        </div>
+                    </span>
+                    <span>
+                        <div>
+                            {"u.location.country"}
+                        </div>
+                        <div>
+                            {"u.location.city"}
+                        </div>
+                    </span>
                 </span>
-            </span>
-        </div>)}
+            </div>)}
     </div>;
 }
 

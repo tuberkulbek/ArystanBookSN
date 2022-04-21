@@ -8,6 +8,10 @@
     grid-template-columns: 40% 10% 1fr;
 }
 
+.items textarea{
+    resize: none;
+}
+
 .item button {
     background-color: #4CAF50; /* Green */
     border: 2px solid white;

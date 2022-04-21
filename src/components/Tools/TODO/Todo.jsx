@@ -19,7 +19,7 @@ const Todo = (props) => {
                                                              id={m.id} />);
 
     return (
-        <div class={"testing"}>
+        <div className={"testing"}>
             TODO
             <textarea ref={newTODOElement}
                       value={props.newTODOText}

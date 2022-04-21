@@ -7,7 +7,9 @@ const MyPosts = (props) => {
                                                         likes={post.likes}
                                                         id={post.id}
                                                         key={post.id}
-                                                        addLike={props.LikePressed} /> );
+                                                        isLiked={post.isLiked}
+                                                        dislike={props.LikeUnpressed}
+                                                        like={props.LikePressed} /> );
 
     let newPostElement = React.createRef();
 

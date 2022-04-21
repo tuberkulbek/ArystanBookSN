@@ -1,5 +1,5 @@
 import MyPosts from "./MyPosts";
-import {addPost, LikePressed, updateNewPostText} from "../../../../redux/profile-reducer";
+import {addPost, LikePressed, LikeUnpressed, updateNewPostText} from "../../../../redux/profile-reducer";
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) =>{
@@ -17,6 +17,10 @@ const mapStateToProps = (state) =>{
     }
 }*/
 
-const MyPostsContainer = connect(mapStateToProps, {addPost, updateNewPostText, LikePressed,})(MyPosts)
+const MyPostsContainer = connect(mapStateToProps, {
+    addPost,
+    updateNewPostText,
+    LikePressed,
+    LikeUnpressed})(MyPosts)
 
 export default MyPostsContainer;

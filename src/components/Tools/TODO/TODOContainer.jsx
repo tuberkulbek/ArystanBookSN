@@ -9,13 +9,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-/*const mapDispatchToProps = (dispatch) => {
-    return {
-        updateMessageText,
-        addMessage
-    }
-}*/
-
 const TODOContainer = connect(mapStateToProps, {addTODO, updateTODOText})(Todo)
 
 export default TODOContainer;

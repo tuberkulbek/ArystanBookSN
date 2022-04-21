@@ -1,4 +1,4 @@
-import {Route, Routes, Switch} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Dialogs from "./Dialogs/dialogs";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";

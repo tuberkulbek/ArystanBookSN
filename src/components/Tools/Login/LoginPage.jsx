@@ -2,17 +2,19 @@ import Login from "./Login/login";
 import Pass from "./Pass/pass";
 import s from "./LoginPage.module.css"
 
-const LoginPage = () => {
-    return <div className={s.item}>
+const LoginForm = () => {
+    return <form>
         <Login/>
         <Pass/>
-        <button>
-            save me
-        </button>
+        <input type={"checkbox"}/>remember me
         <button className={s.button7}>
             Log in
         </button>
+    </form>
+}
+const LoginPage = () => {
+    return <div className={s.item}>
+        <LoginForm/>
     </div>
 }
-
 export default LoginPage
