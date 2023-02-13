@@ -8,7 +8,6 @@ import FriendsContainer from "./Dialogs/Friends/FriendsContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
 import GamesContainer from "./Games/GamesContainer";
 import TODOContainer from "./TODO/TODOContainer";
-import LoginPage from "./Login/LoginPage";
 
 function Tools(props) {
     return (
@@ -25,7 +24,6 @@ function Tools(props) {
                 <Route path="/games" element={<GamesContainer />}/>
                 <Route path="/todo" element={<TODOContainer />}/>
                 <Route path="/users" element={<UsersContainer/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
             </Routes>
         </div>
     )

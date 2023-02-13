@@ -13,5 +13,20 @@
 }
 
 .pages {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pointer {
     border: 1px solid black;
+    margin-left: 4px
+}
+
+.page {
+    cursor: pointer;
 }

@@ -41,5 +41,11 @@ export const profileAPI = {
 export const AUTHmeAPI = {
     getIsAUTH(){
         return instance.get('auth/me').then(r=>r.data)
+    },
+    logIn(data) {
+        return instance.post('auth/login', data).then(r=>r.data)
+    },
+    logOut() {
+        return instance.delete('auth/login').then(r=>r.data)
     }
 }

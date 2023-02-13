@@ -1,4 +1,4 @@
-import preloader from "../preloader.svg"
+import preloader from "../assets/preloader.svg"
 import React from "react";
 
 const Loader = (props) => {

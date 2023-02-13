@@ -1,6 +1,6 @@
 import s from './profileInfo.module.css'
 import Loader from "../../../../common/Loader";
-import user from "../../../../user.png"
+import user from "../../../../assets/user.png"
 import StatusInfo from "./StatusInfo";
 
 const ProfileInfo = (props) => {

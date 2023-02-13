@@ -4,10 +4,6 @@ import {getIsAUTH} from "../../redux/auth-reducer";
 import Header from "./header";
 
 class HeaderContainer extends React.Component {
-    componentDidMount() {
-        this.props.getIsAUTH()
-    }
-
     render() {
         return <Header {...this.props}/>
     }
@@ -22,6 +18,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect (mapStateToProps, {
-    getIsAUTH
-})(HeaderContainer)
+export default connect (mapStateToProps, {})(HeaderContainer)

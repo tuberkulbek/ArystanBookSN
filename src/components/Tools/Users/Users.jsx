@@ -5,12 +5,6 @@ import FollowUnfollowButton from "./Follow/UnfollowButton";
 import UserPhoto from "./UserPhoto/UserPhoto";
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
-
     return <div className={s.items}>
         <Pagination currentPage={props.currentPage}
                     totalUserCount={props.totalUserCount}

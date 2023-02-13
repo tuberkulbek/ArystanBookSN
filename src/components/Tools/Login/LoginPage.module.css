@@ -7,9 +7,51 @@
 .button {
     width: 120px;
 }
-.button7 {
+
+.login_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1d1d1d;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_wrapper_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: #303030;
+    border: black solid 1px;
+    border-radius: 30px;
+    height: 300px;
+}
+.discription {
+    color: white;
+    font-size: 14px;
+    margin-top: 50px;
+}
+.checkbox {
+    margin-top: 10px;
+    width: 250px;
+}
+.loginArea {
+    margin-top: 20px;
+    width: 250px;
+}
+.passArea {
+    margin-top: 10px;
+    width: 250px;
+}
+ 
+.button {
     background-color: #0095ff;
     border: 1px solid transparent;
+    width: 250px;
+    margin-top: 25px!important;
     border-radius: 3px;
     box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
     box-sizing: border-box;
@@ -33,16 +75,16 @@
     white-space: nowrap;
 }
 
-.button7:hover,
-.button7:focus {
+.button:hover,
+.button:focus {
     background-color: #07c;
 }
 
-.button7:focus {
+.button:focus {
     box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
 }
 
-.button7:active {
+.button:active {
     background-color: #0064bd;
     box-shadow: none;
 }

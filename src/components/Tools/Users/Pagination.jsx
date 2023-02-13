@@ -1,20 +1,35 @@
 import s from "./Users.module.css";
 import React from "react";
+import { useState } from "react";
 
 const Pagination = (props) => {
-    let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
+    let [pages, setPages] = useState([1, 2, 3, 4, 5])
+    let handleClickNextPages = (n) => {
+        setPages(pages.map(i => i+n<=0?i:i+n))
     }
+
     return (
-        <div>
-            {pages.map(p =>
-                <span className={`${props.currentPage === p && s.selectedPage} ${s.pages}`}
-                      onClick={() => {props.onPageChange(p)}}
-                      key={`qweqwe${p}`}>
-                    {p}
-                </span>)}
+        <div className={s.pagination}>
+            <div onClick={() => {handleClickNextPages(-10)}} className={s.pointer}>
+                {'<<'}
+            </div>
+            <div onClick={() => {handleClickNextPages(-5)}} className={s.pointer}>
+                {'<'}
+            </div>
+            <div className={s.pages}>
+                {pages.map(p =>
+                    <span className={`${props.currentPage === p && s.selectedPage} ${s.page}`}
+                          onClick={() => {props.onPageChange(p)}}
+                          key={`qweqwe${p}`}>
+                        {p}
+                    </span>)}
+            </div>
+            <div onClick={() => {handleClickNextPages(5)}} className={s.pointer}>
+                {'>'}
+            </div>
+            <div onClick={() => {handleClickNextPages(10)}} className={s.pointer}>
+                {'>>'}
+            </div>
         </div>
     )
 }

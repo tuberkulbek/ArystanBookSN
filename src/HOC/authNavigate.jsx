@@ -1,6 +1,6 @@
 import React from "react";
 import {Navigate} from "react-router";
-import {connect} from "react-redux";
+import {connect, useSelector} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {

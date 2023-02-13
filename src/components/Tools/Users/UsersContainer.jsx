@@ -21,7 +21,6 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Loader/> : null}
             <Users {...this.props}
                    onPageChange={this.onPageChange}/>
         </>;
