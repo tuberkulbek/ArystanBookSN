@@ -18,6 +18,8 @@ let reducers = combineReducers({
 
 let store = createStore(reducers, applyMiddleware(ThunkMiddleware))
 
+//@ts-ignore
 window.store = store
+export type AppDispatch = typeof store.dispatch;
 
 export default store

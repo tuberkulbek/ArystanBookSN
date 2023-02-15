@@ -1,4 +1,4 @@
-import {usersAPI} from "../API/api";
+import {usersAPI} from "../request/users/index";
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"

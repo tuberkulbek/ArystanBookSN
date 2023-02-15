@@ -9,14 +9,6 @@ const mapStateToProps = (state) =>{
     }
 }
 
-/*const mapDispatchToProps = (dispatch) => {
-    return{
-        addPost,
-        updateNewPostText,
-        LikePressed,
-    }
-}*/
-
 const MyPostsContainer = connect(mapStateToProps, {
     addPost,
     updateNewPostText,

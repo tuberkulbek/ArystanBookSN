@@ -88,3 +88,17 @@
     background-color: #0064bd;
     box-shadow: none;
 }
+
+.password_wrapper {
+    position: relative;
+}
+
+.password_wrapper svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 4px;
+    position: absolute;
+    box-sizing:border-box;
+    top: 8px;
+    right: 0;
+}

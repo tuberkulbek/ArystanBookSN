@@ -9,13 +9,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-/*const mapDispatchToProps = (dispatch) => {
-    return {
-        updateMessageText,
-        addMessage
-    }
-}*/
-
 const MessagesContainer = connect(mapStateToProps, {updateMessageText, addMessage})(Messages)
 
 export default MessagesContainer;

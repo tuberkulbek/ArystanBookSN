@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { postLogInData } from "../../../redux/auth-reducer"
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import s from "./LoginPage.module.css"
 
 const LoginForm = () => {
@@ -8,14 +9,20 @@ const LoginForm = () => {
     const [login, setLogin] = useState('')
     const [pass, setPass] = useState('')
     const [checkbox, setCheckbox] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
     console.log(checkbox)
     const data = {
         email: login,
         password: pass,
         rememberMe: checkbox
     }
-    const handleSubmit = () => {
-        dispatch(postLogInData(data))
+    const handleShowPassword = () => {
+        setIsVisible(!isVisible)
+    }
+    const handleSubmit = (e) => {
+        if (e.type === "click" || e.key === "Enter") {
+            dispatch(postLogInData(data))
+        }
     }
     return (
         <div className={s.login_wrapper}>
@@ -25,12 +32,21 @@ const LoginForm = () => {
                 </div>
                 <input
                     className={s.loginArea}
-                    onChange={(e)=>setLogin(e.target.value)}
-                    placeholder={'Email or phone number'}/>
-                <input
-                    className={s.passArea}
-                    onChange={(e)=>setPass(e.target.value)}
-                    placeholder={'Password'}/>
+                    onChange={(e) => setLogin(e.target.value)}
+                    onKeyPress={handleSubmit}
+                    type={"email"}
+                    placeholder={'Email or phone number'} />
+                <div className={s.password_wrapper}>
+                    <input
+                        className={s.passArea}
+                        onChange={(e) => setPass(e.target.value)}
+                        onKeyPress={handleSubmit}
+                        type={ !isVisible ? "password" : "text" }
+                        placeholder={'Password'} />
+                    
+                    {isVisible ? <AiOutlineEye onClick={handleShowPassword} /> :
+                        <AiOutlineEyeInvisible onClick={handleShowPassword} />}
+                </div>
                 <div className={s.checkbox}>
                     <input
                         type={"checkbox"}

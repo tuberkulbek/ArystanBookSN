@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 let PLAYER_TYPE = 'PLAYER_TYPE'
 let player = 'x';
 const RESET_GAME = 'RESET_GAME'
@@ -20,7 +19,6 @@ let initialState = {
 let gameReducer = (state = initialState, action) => {
     switch (action.type) {
         case PLAYER_TYPE: {
-            // eslint-disable-next-line no-unused-vars
             if (state.id1===action.id){
                 state.name1 = player
             } else if (state.id2===action.id){
