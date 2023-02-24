@@ -1,6 +1,17 @@
-.item {
-    border-left: 1px solid white;
+.message_wrapper {
+    border: 1px solid white;
+    border-radius: 40px;
     padding: 1px 20px 30px 20px;
+}
+
+.messageElements {
+    height: 300px;
+    overflow: scroll;
+}
+
+.refDiv {
+    width: 0;
+    height: 0;
 }
 
 .items {

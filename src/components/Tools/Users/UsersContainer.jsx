@@ -4,10 +4,9 @@ import {
     follow, getUsers, setLoader,
     setUsersPage,
     unfollow
-} from "../../../redux/users-reducer";
+} from "../../../app/redux/users-reducer";
 import React from "react";
 import Users from "./Users";
-import Loader from "../../../common/Loader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {

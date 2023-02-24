@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { postLogInData } from "../../../redux/auth-reducer"
+import { postLogInData } from "../../../app/redux/auth-reducer"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import s from "./LoginPage.module.css"
 
@@ -10,7 +10,6 @@ const LoginForm = () => {
     const [pass, setPass] = useState('')
     const [checkbox, setCheckbox] = useState(false)
     const [isVisible, setIsVisible] = useState(false)
-    console.log(checkbox)
     const data = {
         email: login,
         password: pass,

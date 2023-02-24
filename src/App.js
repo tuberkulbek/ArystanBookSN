@@ -5,7 +5,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import {useDispatch, useSelector} from "react-redux";
 import LoginPage from "./components/Tools/Login/LoginPage";
 import { useEffect } from "react";
-import { getIsAUTH } from "./redux/auth-reducer";
+import { getIsAUTH } from "./app/redux/auth-reducer";
 
 function App() {
     const dispatch = useDispatch()

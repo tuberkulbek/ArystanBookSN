@@ -1,5 +1,6 @@
 .container {
     display: grid;
+    height: 100vh;
     grid-template-areas: 
     "h h"
     "n d";
@@ -10,7 +11,6 @@
 .container-content {
     grid-area: d;
     background-color: #303030;
-    height: 100vh;
     font-style: italic;
     color: #FF8000;
 }

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { MdExitToApp } from "react-icons/md";
 import {useDispatch, useSelector} from "react-redux";
-import {deletetLogInData} from "../../redux/auth-reducer";
+import { deletetLogInData } from "../../app/redux/auth-reducer";
 
 const Header = (props) => {
     const [isViseble, setIsVisible] = useState(false)

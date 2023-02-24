@@ -2,6 +2,7 @@ import {AUTHmeAPI, LoginDataTypes, ResponeAuthType} from "../request/auth/index"
 import { AppDispatch } from "./redux-store";
 
 const SET_LOGIN_DATA = "SET_LOGIN_DATA"
+const SET_IS_AUTH = "SET_IS_AUTH"
 
 let initialState = {
     isFetching: true,
@@ -11,13 +12,21 @@ let initialState = {
     isAuth: false
 }
 
-const authReducer = (state = initialState, action: { type: string; data: LoginDataTypes; }) => {
+const authReducer = (state = initialState, action: {
+    isAuth: boolean; type: string; data: LoginDataTypes; 
+}) => {
     switch (action.type) {
         case SET_LOGIN_DATA: {
             return {
                 ...state,
                 ...action.data,
             };
+        }
+        case SET_IS_AUTH: {
+            return {
+                ...state,
+                isAuth: action.isAuth
+            }
         }
         default: {
             return {
@@ -27,12 +36,14 @@ const authReducer = (state = initialState, action: { type: string; data: LoginDa
     }
 }
 
-export const setLoginData = ({id, email, login } : LoginDataTypes) => ({type: SET_LOGIN_DATA, data: {id, login, email}})
+export const setLoginData = ({ id, email, login }: LoginDataTypes) => ({ type: SET_LOGIN_DATA, data: { id, login, email } })
+export const setIsAuth = (isAuth: boolean) => ({type: SET_IS_AUTH, isAuth})
 export const getIsAUTH = () => {
     return (dispatch: AppDispatch) => {
         AUTHmeAPI.getIsAUTH().then( (data: ResponeAuthType<LoginDataTypes>) => {
             if(data.resultCode === 0){
                 dispatch(setLoginData(data.data))
+                dispatch(setIsAuth(true))
             }
         })
     }
@@ -43,7 +54,6 @@ export const postLogInData = (data: LoginDataTypes) => {
             if (e.resultCode === 0) {
                 AUTHmeAPI.getIsAUTH().then( (data: ResponeAuthType<LoginDataTypes>)=> {
                     if (data.resultCode === 0) {
-                        console.log(data)
                         dispatch(setLoginData(data.data))
                     }
                 })

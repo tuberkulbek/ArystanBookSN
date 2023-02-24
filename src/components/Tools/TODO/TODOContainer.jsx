@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Todo from "./Todo";
-import {addTODO, updateTODOText} from "../../../redux/todo-reducer";
+import {addTODO, updateTODOText} from "../../../app/redux/todo-reducer";
 
 const mapStateToProps = (state) => {
     return {

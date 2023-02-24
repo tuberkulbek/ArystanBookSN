@@ -14,10 +14,7 @@ function Tools(props) {
         <div>
             <Routes>
                 <Route path="/profile/:userId" element={<ProfileContainer />}/>
-                <Route path="/messages"
-                       element={<FriendsContainer/>}/>
-                <Route path={`/messages/1`}
-                       element={<Dialogs/>}/>
+                <Route path="/messages" element={<Dialogs />}/>
                 <Route path="/music" element={<Music/>}/>
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/news" element={<News/>}/>

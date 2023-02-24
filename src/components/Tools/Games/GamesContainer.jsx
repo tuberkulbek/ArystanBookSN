@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Games from "./Games";
-import {resetGame, tictac} from "../../../redux/game-reducer";
+import {resetGame, tictac} from "../../../app/redux/game-reducer";
 
 const mapStateToProps = (state) => {
     return {

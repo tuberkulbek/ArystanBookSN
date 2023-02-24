@@ -1,7 +1,7 @@
 import Profile from "./profile";
 import React from "react";
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, updateStatus} from "../../../redux/profile-reducer";
+import {getStatus, getUserProfile, updateStatus} from "../../../app/redux/profile-reducer";
 import {useMatch} from "react-router";
 import {withAuthNavigate} from "../../../HOC/authNavigate";
 import {compose} from "redux";

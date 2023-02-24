@@ -1,5 +1,5 @@
 import MyPosts from "./MyPosts";
-import {addPost, LikePressed, LikeUnpressed, updateNewPostText} from "../../../../redux/profile-reducer";
+import {addPost, LikePressed, LikeUnpressed, updateNewPostText} from "../../../../app/redux/profile-reducer";
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) =>{
